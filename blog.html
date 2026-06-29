@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heshan Madhuwantha | Blog</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Blog Page Hero Section */
+        .blog-hero {
+            padding: 140px 8% 60px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(10, 14, 26, 0.9) 0%, rgba(13, 21, 48, 0.9) 100%), url('heshan-bg.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .blog-hero h2 {
+            font-size: 46px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .blog-hero h2 span { color: #4f8ef7; }
+        .blog-hero p {
+            color: #8a99b5;
+            font-size: 18px;
+        }
+
+        /* Blog Grid Layout */
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 70px 5% 90px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .blog-card {
+            background: #0d1224;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            border-color: #4f8ef7;
+            box-shadow: 0 15px 40px rgba(79, 142, 247, 0.15);
+        }
+
+        .blog-img-box {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .blog-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card:hover .blog-img-box img {
+            transform: scale(1.08);
+        }
+
+        .blog-content {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex-grow: 1;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #8a99b5;
+            font-weight: 500;
+        }
+
+        .blog-meta span i {
+            color: #4f8ef7;
+            margin-right: 5px;
+        }
+
+        .blog-content h3 {
+            color: #fff;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 1.4;
+            transition: color 0.3s ease;
+        }
+
+        .blog-card:hover .blog-content h3 {
+            color: #4f8ef7;
+        }
+
+        .blog-desc {
+            color: #a0abc0;
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .read-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #4f8ef7;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: auto;
+            transition: gap 0.3s ease;
+        }
+
+        .blog-card:hover .read-more-btn {
+            gap: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .blog-hero h2 { font-size: 36px; }
+            .blog-container { padding: 50px 5% 60px; }
+        }
+    </style>
+</head>
+<body id="page-body">
+
+    <nav>
+        <a href="index.html" class="logo">Heshan Madhuwantha</a>
+        
+        <ul id="nav-menu" style="margin-left: auto;">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="music.html">Music</a></li>
+            <li><a href="cv.html">CV</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        
+        <button class="theme-toggle-btn" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+<div class="page-hero">
+        <span class="tag">Let's look</span>
+        <h1>Articles & Blog</h1>
+        <p>Thoughts, technical insights, and updates on my journey</p>
+        <div class="hero-line"></div>
+    </div>
+    
+    <main class="blog-container">
+        
+        <article class="blog-card">
+            <div class="blog-img-box">
+                <img src="blog1.jpg" alt="Blog Post Image">
+            </div>
+            <div class="blog-content">
+                <div class="blog-meta">
+                    <span><i class="fa-solid fa-calendar-days"></i> June 29, 2026</span>
+                    <span><i class="fa-solid fa-user"></i> Heshan Madhuwantha</span>
+                </div>
+                <h3>Getting Started with Machine Learning and Data Science</h3>
+                <p class="blog-desc">An introductory guide into how I started exploring data science, Python libraries, and analytical model building as an undergraduate.</p>
+                <a href="#" class="read-more-btn">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </article>
+
+        <article class="blog-card">
+            <div class="blog-img-box">
+                <img src="blog2.jpg" alt="Blog Post Image">
+            </div>
+            <div class="blog-content">
+                <div class="blog-meta">
+                    <span><i class="fa-solid fa-calendar-days"></i> June 15, 2026</span>
+                    <span><i class="fa-solid fa-user"></i> Heshan Madhuwantha</span>
+                </div>
+                <h3>The Intersection of Coding and Musical Artistry</h3>
+                <p class="blog-desc">Exploring the similarities between algorithmic problem-solving and playing the piano or vocalizing artistry.</p>
+                <a href="#" class="read-more-btn">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </article>
+
+        <article class="blog-card">
+            <div class="blog-img-box">
+                <img src="blog3.jpg" alt="Blog Post Image">
+            </div>
+            <div class="blog-content">
+                <div class="blog-meta">
+                    <span><i class="fa-solid fa-calendar-days"></i> May 28, 2026</span>
+                    <span><i class="fa-solid fa-user"></i> Heshan Madhuwantha</span>
+                </div>
+                <h3>Building Modern Web Portfolios with GitHub Pages</h3>
+                <p class="blog-desc">A quick recap of hosting a responsive portfolio platform on GitHub entirely customized with HTML5, CSS3, and JavaScript.</p>
+                <a href="#" class="read-more-btn">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </article>
+
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <a href="index.html" class="footer-logo">Heshan Madhuwantha</a>
+            <nav class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="skills.html">Skills</a>
+                <a href="projects.html">Projects</a>
+                <a href="music.html">Music</a>
+                <a href="cv.html">CV</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <p>© 2026 Heshan Madhuwantha. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        /* Mobile Menu Toggle */
+        function toggleMenu() {
+            document.getElementById('nav-menu').classList.toggle('open');
+            document.getElementById('hamburger').classList.toggle('open');
+        }
+        
+        /* Theme Toggle Code */
+        function toggleTheme() {
+            const body = document.getElementById('page-body');
+            const toggleBtn = document.getElementById('theme-toggle');
+            
+            body.classList.toggle('light-mode');
+            
+            if (body.classList.contains('light-mode')) {
+                localStorage.setItem('portfolio-theme', 'light');
+                toggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            } else {
+                localStorage.setItem('portfolio-theme', 'dark');
+                toggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            }
+        }
+
+        /* Retain selected Theme on page load */
+        window.onload = function() {
+            const savedTheme = localStorage.getItem('portfolio-theme');
+            const body = document.getElementById('page-body');
+            const toggleBtn = document.getElementById('theme-toggle');
+            
+            if (savedTheme === 'light') {
+                body.classList.add('light-mode');
+                if(toggleBtn) toggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            } else {
+                body.classList.remove('light-mode');
+                if(toggleBtn) toggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            }
+        };
+    </script>
+</body>
+</html>
