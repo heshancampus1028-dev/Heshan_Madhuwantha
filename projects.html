@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heshan Madhuwantha | Projects</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 22px;
+        }
+        .project-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.2s, transform 0.25s;
+        }
+        .project-card:hover { border-color: rgba(79,142,247,0.35); transform: translateY(-5px); }
+
+        .project-top { padding: 28px 24px 0; flex: 1; }
+        .project-icon { font-size: 30px; margin-bottom: 16px; display: block; }
+        .project-card h3 { font-size: 17px; font-weight: 600; color: #fff; margin-bottom: 10px; }
+        .project-card p { font-size: 14px; color: #8a99b5; line-height: 1.75; margin-bottom: 20px; }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 0 24px 16px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 10px;
+            padding: 16px 24px 24px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .project-links a {
+            font-size: 13px;
+            font-weight: 600;
+            color: #4f8ef7;
+            text-decoration: none;
+            padding: 7px 16px;
+            border: 1px solid rgba(79,142,247,0.25);
+            border-radius: 8px;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .project-links a:hover {
+            background: rgba(79,142,247,0.1);
+            border-color: #4f8ef7;
+        }
+        .project-links a.disabled {
+            color: #4a5568;
+            border-color: rgba(255,255,255,0.07);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body id="page-body">
+
+    <nav>
+        <a href="index.html" class="logo">Heshan Madhuwantha</a>
+        
+        <ul id="nav-menu" style="margin-left: auto;">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="music.html">Music</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        
+        <button class="theme-toggle-btn" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+    <div class="page-hero">
+        <span class="tag">What I Built</span>
+        <h1>Projects</h1>
+        <p>A collection of software projects I've designed, built, and shipped.</p>
+        <div class="hero-line"></div>
+    </div>
+
+    <div class="page-content">
+        <div class="projects-grid reveal">
+
+            <div class="project-card">
+                <div class="project-top">
+                    <span class="project-icon">🛒</span>
+                    <h3>Sales Management System</h3>
+                    <p>A full GUI desktop application built with Java Swing and SQLite, following the MVC pattern. Features inventory tracking, sales reporting, customer management, and JUnit 5 test coverage.</p>
+                </div>
+                <div class="project-tags">
+                    <span class="tag">Java</span>
+                    <span class="tag">SQLite</span>
+                    <span class="tag">Java Swing</span>
+                    <span class="tag">MVC</span>
+                    <span class="tag">JUnit 5</span>
+                    <span class="tag">Maven</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com" target="_blank">GitHub →</a>
+                    <a class="disabled">Demo coming</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-top">
+                    <span class="project-icon">📊</span>
+                    <h3>Numerical Methods Solver</h3>
+                    <p>Interactive solver implementing root-finding (Bisection, Newton-Raphson, Secant) and interpolation methods (Lagrange, Newton's Divided Differences, Hermite) with step-by-step output.</p>
+                </div>
+                <div class="project-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Numerical Methods</span>
+                    <span class="tag">MAT 2032</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com" target="_blank">GitHub →</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-top">
+                    <span class="project-icon">🌐</span>
+                    <h3>Personal Portfolio Website</h3>
+                    <p>This multi-page responsive portfolio built from scratch with pure HTML, CSS, and vanilla JavaScript. Features dark theme, scroll animations, skill progress bars, and a working contact form.</p>
+                </div>
+                <div class="project-tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Responsive</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com" target="_blank">GitHub →</a>
+                    <a href="index.html">Live Site →</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-top">
+                    <span class="project-icon">🗄️</span>
+                    <h3>Database Concurrency Study Tool</h3>
+                    <p>A comprehensive study document and interactive quiz on Transactions and Concurrency Control — covering ACID properties, locking mechanisms, MVCC, and deadlock resolution.</p>
+                </div>
+                <div class="project-tags">
+                    <span class="tag">Database Theory</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">HTML Quiz</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com" target="_blank">GitHub →</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <a href="index.html" class="footer-logo">Heshan Madhuwantha</a>
+            <nav class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="skills.html">Skills</a>
+                <a href="projects.html">Projects</a>
+                <a href="music.html">Music</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <p>© 2025 Heshan Madhuwantha. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('nav-menu').classList.toggle('open');
+            document.getElementById('hamburger').classList.toggle('open');
+        }
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        function toggleMenu() {
+            document.getElementById('nav-menu').classList.toggle('open');
+            document.getElementById('hamburger').classList.toggle('open');
+        }
+        
+        // Theme මාරු කරන කේතය
+        function toggleTheme() {
+            const body = document.getElementById('page-body');
+            const toggleBtn = document.getElementById('theme-toggle');
+            
+            body.classList.toggle('light-mode');
+            
+            if (body.classList.contains('light-mode')) {
+                localStorage.setItem('portfolio-theme', 'light');
+                toggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            } else {
+                localStorage.setItem('portfolio-theme', 'dark');
+                toggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            }
+        }
+
+        // Page එක Load වෙනකොට කලින් තෝරපු Theme එක දිගටම තියාගන්න 
+        window.onload = function() {
+            const savedTheme = localStorage.getItem('portfolio-theme');
+            const body = document.getElementById('page-body');
+            const toggleBtn = document.getElementById('theme-toggle');
+            
+            if (savedTheme === 'light') {
+                body.classList.add('light-mode');
+                if(toggleBtn) toggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            } else {
+                body.classList.remove('light-mode');
+                if(toggleBtn) toggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            }
+        };
+    </script>
+</body>
+</html>

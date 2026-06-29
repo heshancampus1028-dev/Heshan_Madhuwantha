@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heshan Madhuwantha | Music</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* සජීවිකරණ සහ දර්ශන පාලනය */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, visibility;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        .music-intro {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 70px;
+        }
+        .music-intro p {
+            font-size: 16px;
+            line-height: 1.9;
+            color: #8a99b5;
+            margin-bottom: 16px;
+        }
+        .music-intro p strong { color: #e0e6f0; }
+
+        .music-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .music-highlight-card {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 20px 22px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .music-highlight-card:hover { border-color: rgba(79,142,247,0.3); transform: translateX(4px); }
+        .mh-icon-box {
+            width: 52px;
+            height: 52px;
+            background: rgba(79,142,247,0.08);
+            border: 1px solid rgba(79,142,247,0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        .music-highlight-card h4 { font-size: 15px; font-weight: 600; color: #e0e6f0; margin-bottom: 4px; }
+        .music-highlight-card p { font-size: 13px; color: #8a99b5; margin: 0; }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 28px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .genre-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 14px;
+            margin-bottom: 60px;
+        }
+        .genre-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 22px 16px;
+            text-align: center;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .genre-card:hover { border-color: rgba(79,142,247,0.3); transform: translateY(-3px); }
+        .genre-card .g-icon { font-size: 28px; margin-bottom: 10px; display: block; }
+        .genre-card h4 { font-size: 14px; font-weight: 600; color: #e0e6f0; margin-bottom: 4px; }
+        .genre-card p { font-size: 12px; color: #8a99b5; }
+
+        .quote-block {
+            background: rgba(79,142,247,0.05);
+            border-left: 3px solid #4f8ef7;
+            border-radius: 0 12px 12px 0;
+            padding: 24px 28px;
+            margin-top: 10px;
+        }
+        .quote-block p {
+            font-size: 17px;
+            color: #c5d0e0;
+            line-height: 1.8;
+            font-style: italic;
+        }
+        .quote-block span { display: block; font-size: 13px; color: #8a99b5; margin-top: 10px; }
+
+        /* නිවැරදි කරන ලද පින්තූර සහ ටයිම්ලයින් ග්‍රිඩ් පිරිසැලසුම (Fixed Grid with Fixed Width Images) */
+        .music-gallery-section {
+            margin-top: 60px;
+        }
+        
+        .music-gallery-grid {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .bg-anim-img-left, .bg-anim-img-right {
+            width: 200px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 16px;
+            border: 2px solid rgba(79, 142, 247, 0.3);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            position: sticky;
+            top: 120px;
+            flex-shrink: 0;
+        }
+
+        /* දර්ශන පථයට පැමිණි විට පින්තූර මතුවේ */
+        .music-gallery-grid.visible .bg-anim-img-left,
+        .music-gallery-grid.visible .bg-anim-img-right {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ටයිම්ලයින් මෝස්තර */
+        .timeline-container {
+            position: relative;
+            padding: 20px 0;
+            max-width: 650px;
+            width: 100%;
+        }
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: rgba(79,142,247,0.2);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+        .timeline-item {
+            padding: 10px 25px;
+            position: relative;
+            background: inherit;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        .timeline-item:nth-child(odd) { left: 0; }
+        .timeline-item:nth-child(even) { left: 50%; }
+        
+        .timeline-card {
+            padding: 20px 22px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            position: relative;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .timeline-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(79,142,247,0.4);
+            box-shadow: 0 10px 25px rgba(79,142,247,0.15);
+        }
+        .timeline-card::after {
+            content: '';
+            position: absolute;
+            top: 26px;
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+        }
+        .timeline-item:nth-child(odd) .timeline-card::after {
+            right: -16px;
+            border-left: 16px solid rgba(255,255,255,0.03);
+        }
+        .timeline-item:nth-child(even) .timeline-card::after {
+            left: -16px;
+            border-right: 16px solid rgba(255,255,255,0.03);
+        }
+        
+        .timeline-icon {
+            position: absolute;
+            top: 20px;
+            right: -41px;
+            width: 40px;
+            height: 40px;
+            background: #0d1527;
+            border: 2px solid #4f8ef7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            z-index: 100;
+            color: #4f8ef7;
+        }
+        .timeline-item:nth-child(even) .timeline-icon {
+            left: -41px;
+        }
+        
+        .timeline-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(79,142,247,0.1);
+            color: #4f8ef7;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+        .timeline-card h3 {
+            font-size: 16px;
+            color: #e0e6f0;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+        .timeline-card h4 {
+            font-size: 13px;
+            color: #8a99b5;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        .timeline-card p {
+            font-size: 12px;
+            color: #a0aec0;
+            line-height: 1.5;
+        }
+
+        /* Mobile & Tablet Responsive Styles */
+        @media (max-width: 1024px) {
+            .bg-anim-img-left, .bg-anim-img-right {
+                display: none; /* කුඩා තිර සහ ටැබ්ලට් සඳහා ඡායාරූප සඟවයි */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .music-intro { grid-template-columns: 1fr; gap: 40px; }
+            .timeline-container::after { left: 20px; margin-left: 0; }
+            .timeline-item { width: 100%; padding-left: 60px; padding-right: 15px; padding-bottom: 25px; left: 0% !important; }
+            .timeline-card::after { border-right: 16px solid rgba(255,255,255,0.03) !important; border-left: none !important; left: -16px !important; right: auto !important; }
+            .timeline-icon { left: -2px !important; right: auto !important; top: 18px !important; }
+        }
+    </style>
+</head>
+<body id="page-body">
+
+    <nav>
+        <a href="index.html" class="logo">Heshan Madhuwantha</a>
+        
+        <ul id="nav-menu" style="margin-left: auto;">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="music.html">Music</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        
+        <button class="theme-toggle-btn" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+    <div class="page-hero">
+        <span class="tag">My Creative Side</span>
+        <h1>Musical Journey</h1>
+        <p>Where analytical thinking meets artistic expression.</p>
+        <div class="hero-line"></div>
+    </div>
+
+    <div class="page-content">
+
+        <div class="music-intro reveal">
+            <div>
+                <p>As a passionate <strong>pianist and vocalist</strong>, music has been a core part of my life for over five years. I believe that the same qualities that make a great programmer — patience, attention to detail, and creative problem-solving — are exactly what music demands.</p>
+                <p>My musical journey started with classical piano training and evolved into contemporary styles, vocal performance, and original composition. Music gives me the perfect <strong>creative counterbalance</strong> to my technical academic life.</p>
+                <div class="quote-block">
+                    <p>"Music and mathematics are not opposites — they are the same language spoken differently."</p>
+                    <span>— A philosophy I live by</span>
+                </div>
+            </div>
+<div class="music-visual">
+                <div class="music-highlight-card">
+                    <div class="mh-icon-box">🎹</div>
+                    <div>
+                        <h4>Piano</h4>
+                        <p>Classical & contemporary, 5+ years</p>
+                    </div>
+                </div>
+                <div class="music-highlight-card">
+                    <div class="mh-icon-box">🎤</div>
+                    <div>
+                        <h4>Vocals</h4>
+                        <p>Lead vocalist, soulful style</p>
+                    </div>
+                </div>
+                <div class="music-highlight-card">
+                    <div class="mh-icon-box">🎵</div>
+                    <div>
+                        <h4>Composition</h4>
+                        <p>Writing original melodies</p>
+                    </div>
+                </div>
+                <div class="music-highlight-card">
+                    <div class="mh-icon-box">🎧</div>
+                    <div>
+                        <h4>Arrangement</h4>
+                        <p>Harmonizing and layering sounds</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="reveal">
+            <h3 class="section-title">Genres & Styles</h3>
+            <div class="genre-grid">
+                <div class="genre-card">
+                    <span class="g-icon">🎼</span>
+                    <h4>Classical</h4>
+                    <p>Piano foundations</p>
+                </div>
+                <div class="genre-card">
+                    <span class="g-icon">🎸</span>
+                    <h4>Contemporary</h4>
+                    <p>Modern pop & ballads</p>
+                </div>
+                <div class="genre-card">
+                    <span class="g-icon">🎷</span>
+                    <h4>Jazz</h4>
+                    <p>Improvisation & chords</p>
+                </div>
+                <div class="genre-card">
+                    <span class="g-icon">🎹</span>
+                    <h4>Gospel</h4>
+                    <p>Worship & soul</p>
+                </div>
+                <div class="genre-card">
+                    <span class="g-icon">🎶</span>
+                    <h4>Sinhala</h4>
+                    <p>Local music & culture</p>
+                </div>
+            </div>
+        </div>
+
+
+                    <div class="reveal music-gallery-section">
+            <h3 class="section-title">Choir & Band Memberships / Affiliations</h3>
+            
+            <div class="music-gallery-grid reveal">
+                <img src="photo1.jpeg" alt="Heshan Music Performance" class="bg-anim-img-left">
+                
+                <div class="timeline-container">
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i class="fa-solid fa-drum"></i></div>
+                        <div class="timeline-card">
+                            <span class="timeline-badge">Grade 3 - 11</span>
+                            <h3>Western Band Member</h3>
+                            <h4>St. Peter's College, Colombo - 04</h4>
+                            <p>Actively contributed and performed as a dedicated member of the Western Band, building strong instrumental foundations and ensemble discipline.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i class="fa-solid fa-music"></i></div>
+                        <div class="timeline-card">
+                            <span class="timeline-badge">Grade 3 - 11</span>
+                            <h3>College Choir Member</h3>
+                            <h4>St. Peter's College, Colombo - 04</h4>
+                            <p>Developed vocal techniques and choral harmony skills through participation in school liturgical and secular choir productions.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i class="fa-solid fa-piano-keyboard"></i></div>
+                        <div class="timeline-card">
+                            <span class="timeline-badge">Grade 8 - Present</span>
+                            <h3>Pianist & Chorister</h3>
+                            <h4>St. Anthony's Church, Nittambuwa</h4>
+                            <p>Serving continuously as a pianist and chorister, accompanying liturgical services and enriching the spiritual atmosphere with instrumental and vocal ability.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i class="fa-solid fa-church"></i></div>
+                        <div class="timeline-card">
+                            <span class="timeline-badge">2025 - Present</span>
+                            <h3>Chorister</h3>
+                            <h4>Archdiocese of Colombo Choir</h4>
+                            <p>Singing and ministering as a chorister in the Archdiocesan Choir, performing at major canonical and community-wide religious events.</p>
+                        </div>
+                    </div>
+		<div class="timeline-item">
+                        <div class="timeline-icon"><i class="fa-solid fa-guitar"></i></div>
+                        <div class="timeline-card">
+                            <span class="timeline-badge">2025 - Present</span>
+                            <h3>Leader & Keyboardist</h3>
+                            <h4>RHYTHMS (Music Band)</h4>
+                            <p>Leading and performing as the keyboardist for the band RHYTHMS, managing musical arrangements and live performances.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <img src="photo2.jpeg" alt="Heshan Music Play" class="bg-anim-img-right">
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <a href="index.html" class="footer-logo">Heshan Madhuwantha</a>
+            <nav class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="skills.html">Skills</a>
+                <a href="projects.html">Projects</a>
+                <a href="music.html">Music</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <p>© 2025 Heshan Madhuwantha. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('nav-menu').classList.toggle('open');
+            document.getElementById('hamburger').classList.toggle('open');
+        }
+        
+        // අන්තර්ජාලය හරහා reveal අංග පෙන්වීම සක්‍රීය කරන Intersection Observer
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        
+        // Theme මාරු කරන කේතය
+        function toggleTheme() {
+            const body = document.getElementById('page-body');
+            const toggleBtn = document.getElementById('theme-toggle');
+            
+            body.classList.toggle('light-mode');
+            
+            if (body.classList.contains('light-mode')) {
+                localStorage.setItem('portfolio-theme', 'light');
+                toggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            } else {
+                localStorage.setItem('portfolio-theme', 'dark');
+                toggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            }
+        }
+
+        // Page එක Load වෙනකොට කලින් තෝරපු Theme එක දිගටම තියාගන්න 
+        window.onload = function() {
+            const savedTheme = localStorage.getItem('portfolio-theme');
+            const body = document.getElementById('page-body');
+            const toggleBtn = document.getElementById('theme-toggle');
+            
+            if (savedTheme === 'light') {
+                body.classList.add('light-mode');
+                if(toggleBtn) toggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            } else {
+                body.classList.remove('light-mode');
+                if(toggleBtn) toggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            }
+        };
+    </script>
+</body>
+</html>

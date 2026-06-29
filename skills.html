@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heshan Madhuwantha | Skills</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 22px;
+            margin-bottom: 60px;
+        }
+        .skill-category {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 28px 24px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .skill-category:hover { border-color: rgba(79,142,247,0.25); transform: translateY(-3px); }
+        .skill-category h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #4f8ef7;
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Tool badges */
+        .tools-section { margin-top: 20px; }
+        .tools-section h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 22px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+        .tools-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .tool-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.09);
+            border-radius: 10px;
+            padding: 10px 16px;
+            font-size: 14px;
+            color: #c5d0e0;
+            font-weight: 500;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .tool-badge:hover {
+            border-color: rgba(79,142,247,0.3);
+            background: rgba(79,142,247,0.07);
+        }
+        .tool-badge .tb-icon { font-size: 18px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">Heshan Madhuwantha</a>
+        <ul id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html" class="active">Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="music.html">Music</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="page-hero">
+        <span class="tag">What I Know</span>
+        <h1>Technical Skills</h1>
+        <p>A breakdown of the technologies, languages, and tools I work with.</p>
+        <div class="hero-line"></div>
+    </div>
+
+    <div class="page-content">
+
+        <div class="skills-grid reveal">
+            <div class="skill-category">
+                <h3>💻 Programming Languages</h3>
+                <div class="skill-item">
+                    <div class="skill-label"><span>Java</span><span>85%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>Python</span><span>70%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>JavaScript</span><span>65%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="65"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>C (Basics)</span><span>50%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="50"></div></div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>🌐 Web Development</h3>
+                <div class="skill-item">
+                    <div class="skill-label"><span>HTML & CSS</span><span>90%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>Java Swing (GUI)</span><span>80%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>React (Learning)</span><span>40%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="40"></div></div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>🗄️ Database & Tools</h3>
+                <div class="skill-item">
+                    <div class="skill-label"><span>SQLite / MySQL</span><span>80%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>Git & GitHub</span><span>75%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>Maven / NetBeans</span><span>70%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>📐 Mathematics & Science</h3>
+                <div class="skill-item">
+                    <div class="skill-label"><span>Linear Algebra</span><span>80%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>Numerical Methods</span><span>75%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>Electronics / Physics</span><span>78%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tools-section reveal">
+            <h3>Tools & Platforms</h3>
+            <div class="tools-grid">
+                <div class="tool-badge"><span class="tb-icon">☕</span> Java / NetBeans</div>
+                <div class="tool-badge"><span class="tb-icon">🐍</span> Python</div>
+                <div class="tool-badge"><span class="tb-icon">🗃️</span> SQLite</div>
+                <div class="tool-badge"><span class="tb-icon">🐬</span> MySQL</div>
+                <div class="tool-badge"><span class="tb-icon">🌿</span> Git & GitHub</div>
+                <div class="tool-badge"><span class="tb-icon">📦</span> Maven</div>
+                <div class="tool-badge"><span class="tb-icon">✅</span> JUnit 5</div>
+                <div class="tool-badge"><span class="tb-icon">🖥️</span> Linux / Terminal</div>
+                <div class="tool-badge"><span class="tb-icon">📝</span> VS Code</div>
+                <div class="tool-badge"><span class="tb-icon">🧮</span> MATLAB (Basic)</div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <a href="index.html" class="footer-logo">Heshan<span>.</span></a>
+            <nav class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="skills.html">Skills</a>
+                <a href="projects.html">Projects</a>
+                <a href="music.html">Music</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <p>© 2025 Heshan Madhuwantha. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('nav-menu').classList.toggle('open');
+            document.getElementById('hamburger').classList.toggle('open');
+        }
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    e.target.querySelectorAll('.skill-fill').forEach(bar => {
+                        setTimeout(() => { bar.style.width = bar.getAttribute('data-width') + '%'; }, 200);
+                    });
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
