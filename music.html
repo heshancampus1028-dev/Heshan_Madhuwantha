@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* සජීවිකරණ සහ දර්ශන පාලනය */
+        
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -109,7 +109,7 @@
         }
         .quote-block span { display: block; font-size: 13px; color: #8a99b5; margin-top: 10px; }
 
-        /* නිවැරදි කරන ලද පින්තූර සහ ටයිම්ලයින් ග්‍රිඩ් පිරිසැලසුම (Fixed Grid with Fixed Width Images) */
+        
         .music-gallery-section {
             margin-top: 60px;
         }
@@ -138,14 +138,14 @@
             flex-shrink: 0;
         }
 
-        /* දර්ශන පථයට පැමිණි විට පින්තූර මතුවේ */
+        
         .music-gallery-grid.visible .bg-anim-img-left,
         .music-gallery-grid.visible .bg-anim-img-right {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* ටයිම්ලයින් මෝස්තර */
+        
         .timeline-container {
             position: relative;
             padding: 20px 0;
@@ -464,13 +464,13 @@
             document.getElementById('hamburger').classList.toggle('open');
         }
         
-        // අන්තර්ජාලය හරහා reveal අංග පෙන්වීම සක්‍රීය කරන Intersection Observer
+        
         const observer = new IntersectionObserver(entries => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         
-        // Theme මාරු කරන කේතය
+        
         function toggleTheme() {
             const body = document.getElementById('page-body');
             const toggleBtn = document.getElementById('theme-toggle');
@@ -486,7 +486,7 @@
             }
         }
 
-        // Page එක Load වෙනකොට කලින් තෝරපු Theme එක දිගටම තියාගන්න 
+        
         window.onload = function() {
             const savedTheme = localStorage.getItem('portfolio-theme');
             const body = document.getElementById('page-body');
