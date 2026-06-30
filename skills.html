@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heshan Madhuwantha | Skills</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -30,6 +31,7 @@
             text-transform: uppercase;
         }
 
+        /* Tool badges */
         .tools-section { margin-top: 20px; }
         .tools-section h3 {
             font-size: 22px;
@@ -62,12 +64,14 @@
             background: rgba(79,142,247,0.07);
         }
         .tool-badge .tb-icon { font-size: 18px; }
+
     </style>
 </head>
 <body id="page-body">
 
     <nav>
-        <a href="index.html" class="logo">Heshan Madhuwantha</a>
+        <a href="index.html" class="logo">Heshan<span>.</span></a>
+        
         <ul id="nav-menu" style="margin-left: auto;">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
@@ -78,11 +82,11 @@
             <li><a href="blog.html">Blog</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
-        
+
         <button class="theme-toggle-btn" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">
             <i class="fa-solid fa-moon"></i>
         </button>
-
+        
         <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
             <span></span><span></span><span></span>
         </button>
@@ -187,35 +191,27 @@
 
     <footer>
         <div class="footer-inner">
-            <a href="index.html" class="footer-logo">Heshan Madhuwantha</a>
+            <a href="index.html" class="footer-logo">Heshan<span>.</span></a>
             <nav class="footer-nav">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
-                <a href="skills.html" class="active">Skills</a>
+                <a href="skills.html">Skills</a>
                 <a href="projects.html">Projects</a>
                 <a href="music.html">Music</a>
                 <a href="cv.html">CV</a>
                 <a href="blog.html">Blog</a>
                 <a href="contact.html">Contact</a>
             </nav>
-            <p>© 2026 Heshan Madhuwantha. All rights reserved.</p>
+            <p>© 2025 Heshan Madhuwantha. All rights reserved.</p>
         </div>
     </footer>
 
-   <script>
+    <script>
         function toggleMenu() {
             document.getElementById('nav-menu').classList.toggle('open');
             document.getElementById('hamburger').classList.toggle('open');
         }
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-        function toggleMenu() {
-            document.getElementById('nav-menu').classList.toggle('open');
-            document.getElementById('hamburger').classList.toggle('open');
-        }
-        
+
         // Theme මාරු කරන කේතය
         function toggleTheme() {
             const body = document.getElementById('page-body');
@@ -232,7 +228,7 @@
             }
         }
 
-        // Page එක Load වෙනකොට කලින් තෝරපු Theme එක දිගටම තියාගන්න 
+        // Page එක Load වෙනකොට කලින් තෝරපු Theme එක දිගටම තියාගන්න
         window.onload = function() {
             const savedTheme = localStorage.getItem('portfolio-theme');
             const body = document.getElementById('page-body');
@@ -246,6 +242,18 @@
                 if(toggleBtn) toggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
             }
         };
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    e.target.querySelectorAll('.skill-fill').forEach(bar => {
+                        setTimeout(() => { bar.style.width = bar.getAttribute('data-width') + '%'; }, 200);
+                    });
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
