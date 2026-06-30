@@ -202,28 +202,21 @@
         </div>
     </footer>
 
-    <script>
+   <script>
         function toggleMenu() {
             document.getElementById('nav-menu').classList.toggle('open');
             document.getElementById('hamburger').classList.toggle('open');
         }
         const observer = new IntersectionObserver(entries => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    e.target.classList.add('visible');
-                    e.target.querySelectorAll('.skill-fill').forEach(bar => {
-                        setTimeout(() => { bar.style.width = bar.getAttribute('data-width') + '%'; }, 200);
-                    });
-                }
-            });
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-        
         function toggleMenu() {
             document.getElementById('nav-menu').classList.toggle('open');
             document.getElementById('hamburger').classList.toggle('open');
         }
         
+        // Theme මාරු කරන කේතය
         function toggleTheme() {
             const body = document.getElementById('page-body');
             const toggleBtn = document.getElementById('theme-toggle');
@@ -239,6 +232,7 @@
             }
         }
 
+        // Page එක Load වෙනකොට කලින් තෝරපු Theme එක දිගටම තියාගන්න 
         window.onload = function() {
             const savedTheme = localStorage.getItem('portfolio-theme');
             const body = document.getElementById('page-body');
