@@ -25,6 +25,58 @@
             font-size: 18px;
         }
 
+        /* Personal Details Section Styles */
+        .personal-details-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 50px 5% 10px;
+        }
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .detail-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 20px;
+            text-align: center;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .detail-card:hover {
+            border-color: rgba(79,142,247,0.3);
+            transform: translateY(-3px);
+        }
+        .detail-icon {
+            font-size: 28px;
+            color: #4f8ef7;
+            margin-bottom: 12px;
+        }
+        .detail-card h4 {
+            font-size: 14px;
+            color: #a0aec0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        .detail-card p {
+            font-size: 14px;
+            color: #fff;
+            font-weight: 500;
+            word-break: break-word;
+        }
+        /* Link card hover state and text decoration removal (iri ain kala) */
+        a.detail-card {
+            text-decoration: none;
+        }
+        a.detail-card h4, a.detail-card p {
+            transition: color 0.2s;
+        }
+        a.detail-card:hover h4, a.detail-card:hover p {
+            color: #4f8ef7;
+        }
+
         .cv-container {
             max-width: 1000px;
             margin: 0 auto;
@@ -169,6 +221,40 @@
         <div class="hero-line"></div>
     </div>
     
+    <section class="personal-details-section">
+        <div class="details-grid">
+            <div class="detail-card">
+                <i class="fa-solid fa-location-dot detail-icon"></i>
+                <h4>Address</h4>
+                <p>72/43,Vikumpura,Ellakkala</p>
+            </div>
+            <div class="detail-card">
+                <i class="fa-solid fa-cake-candles detail-icon"></i>
+                <h4>Date of Birth</h4>
+                <p>October 28, 2003</p>
+            </div>
+            <div class="detail-card">
+                <i class="fa-solid fa-envelope detail-icon"></i>
+                <h4>Email</h4>
+                <p>heshancampus1028@gmail.com</p>
+            </div>
+            <div class="detail-card">
+                <i class="fa-solid fa-phone detail-icon"></i>
+                <h4>Phone</h4>
+                <p>+94 71 990 5596</p>
+            </div>
+            <a href="https://linkedin.com/in/heshan-maduwantha-0142a0236" target="_blank" class="detail-card">
+                <i class="fa-brands fa-linkedin detail-icon"></i>
+                <h4>LinkedIn</h4>
+                <p>View Profile</p>
+            </a>
+            <a href="https://github.com/heshancampus1028-dev" target="_blank" class="detail-card">
+                <i class="fa-brands fa-github detail-icon"></i>
+                <h4>GitHub</h4>
+                <p>View Repos</p>
+            </a>
+        </div>
+    </section>
 
     <main class="cv-container">
         
@@ -235,7 +321,7 @@
         <div class="download-box">
             <h3>Downloadable Resume</h3>
             <p>Click the button below to download my complete CV in PDF format.</p>
-            <a href="cv.pdf" class="btn-primary-custom" download>
+            <a href="resume.pdf" class="btn-primary-custom" download>
                 <i class="fa-solid fa-download"></i> Download CV PDF
             </a>
         </div>
