@@ -564,3 +564,27 @@ body.light-mode .footer-nav a:hover {
     color: #1a202c;
     background: rgba(0, 0, 0, 0.05);
 }
+/* Root variables - Light mode walata hondai */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --primary-color: #0056b3;
+}
+
+/* Dark mode class eka */
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --primary-color: #90caf9;
+}
+
+/* Eeta passe oyage elements walata me variables assign karanna */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition ekak daaganna */
+}
+
+a {
+  color: var(--primary-color);
+}
