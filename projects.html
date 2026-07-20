@@ -68,6 +68,11 @@
    <nav>
     <!-- Logo ඉවත් කර ඇත -->
 
+    <!-- Mobile එකේදී වම් පසින් පේන Hamburger (pages selector) -->
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+    </button>
+
     <!-- මැද ඇති Links -->
     <ul id="nav-menu">
         <li><a href="index.html">Home</a></li>
@@ -88,10 +93,6 @@
 
         <button class="theme-toggle-btn" id="theme-toggle" onclick="toggleTheme()">
             <i class="fa-solid fa-moon"></i>
-        </button>
-
-        <button class="hamburger" id="hamburger" onclick="toggleMenu()">
-            <span></span><span></span><span></span>
         </button>
     </div>
 </nav>

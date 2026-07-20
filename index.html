@@ -618,49 +618,6 @@
             .p-hero-bigword { font-size: 50px; }
             .p-hero-stats { flex-wrap: wrap; }
         }
-
-        /* ================================================================
-           FINAL MOBILE NAV FIX
-           Download CV + Theme toggle + Hamburger ස්ථාවරව උඩින්ම තියෙන්න,
-           Page links විතරක් dropdown එකක් විදිහට nav එකට යටින් පහළට එන්න.
-           Light mode එකේදී dropdown එක කළු නොවී.
-           (style.css එකේ "#nav-menu { position: static !important; }"
-           කියන global rule එකයි මේ ප්‍රශ්නෙට හේතුව - මේ block එකෙන් override කරනවා)
-           ================================================================ */
-        @media (max-width: 950px) {
-            .hamburger { display: flex !important; }
-
-            #nav-menu {
-                display: none !important;
-                position: absolute !important;
-                top: 100% !important;
-                left: 0 !important;
-                width: 100% !important;
-                margin: 0 !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                gap: 10px !important;
-                padding: 20px !important;
-                background: #0a0a0a !important;
-                border-top: 1px solid rgba(255,255,255,0.08);
-                box-shadow: 0 16px 30px rgba(0,0,0,0.4);
-                z-index: 150;
-                max-height: 70vh;
-                overflow-y: auto;
-            }
-            #nav-menu.open { display: flex !important; }
-
-            body.light-mode #nav-menu {
-                background: #ffffff !important;
-                border-top: 1px solid #e2e8f0;
-                box-shadow: 0 16px 30px rgba(0,0,0,0.12);
-            }
-
-            #nav-menu li { width: 100%; max-width: 280px; }
-            #nav-menu li a { display: block; width: 100%; text-align: center; }
-
-            .nav-right { flex-shrink: 0; }
-        }
     </style>
 </head>
 <body id="page-body" class="pre-fade">
@@ -668,7 +625,12 @@
    <nav>
     <!-- Logo ඉවත් කර ඇත -->
 
-    <!-- මැද ඇති Links -->
+    <!-- Mobile එකේදී වම් පසින් පේන Hamburger (pages selector) -->
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+    </button>
+
+    <!-- මැද ඇති Links (Mobile එකේදී dropdown එකක් විදිහට පහළට එනවා) -->
     <ul id="nav-menu">
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -688,10 +650,6 @@
 
         <button class="theme-toggle-btn" id="theme-toggle" onclick="toggleTheme()">
             <i class="fa-solid fa-moon"></i>
-        </button>
-
-        <button class="hamburger" id="hamburger" onclick="toggleMenu()">
-            <span></span><span></span><span></span>
         </button>
     </div>
 </nav>
