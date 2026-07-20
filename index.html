@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heshan Madhuwantha | Home</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Caveat:wght@600&display=swap" rel="stylesheet">
+    <style>
+        /* ============ NEW HERO — Portfolio style ============ */
+        .p-hero {
+            position: relative;
+            background: #0a0a0a;
+            overflow: hidden;
+            padding: 26px 8% 0;
+        }
+        body.light-mode .p-hero { background: #f4f7fa; }
+
+        .p-hero-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            z-index: 3;
+        }
+        .p-hero-top .role-tag {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #e2536a;
+            text-transform: uppercase;
+        }
+        .p-hero-top .role-sub {
+            font-size: 11px;
+            color: #7a7a7a;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+        .p-hero-top .avail-tag {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            color: #cfcfcf;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .p-hero-top .avail-tag i { color: #e2536a; }
+
+        .p-hero-stage {
+            position: relative;
+            min-height: 740px;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .p-hero-bigword {
+            position: absolute;
+            top: -4px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            font-size: 250px;
+            line-height: 0.92;
+            letter-spacing: -4px;
+            background: linear-gradient(180deg, #c81e3a 0%, #5a0e1a 65%, rgba(10,10,10,0) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            user-select: none;
+            pointer-events: none;
+            z-index: 1;
+            white-space: nowrap;
+        }
+        body.light-mode .p-hero-bigword {
+            background: linear-gradient(180deg, #c81e3a 0%, #e8b3bb 65%, rgba(244,247,250,0) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .p-hero-grid {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            align-items: flex-start;
+            gap: 10px;
+            width: 100%;
+            padding-top: 0px;
+        }
+
+        
+        .p-hero-copy .script {
+            font-family: 'Caveat', cursive;
+            font-size: 30px;
+            color: #f2f2f2;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .p-hero-copy h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(34px, 4.2vw, 52px);
+            font-weight: 800;
+            line-height: 1.05;
+            color: #fff;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        body.light-mode .p-hero-copy h1,
+        body.light-mode .p-hero-copy .script { color: #17110f; }
+
+        .p-hero-copy .role-line {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            letter-spacing: 1px;
+            color: #e2536a;
+            margin-bottom: 16px;
+        }
+        .p-hero-copy p.desc {
+            font-size: 14.5px;
+            line-height: 1.75;
+            color: #9a9a9a;
+            max-width: 380px;
+            margin-bottom: 26px;
+        }
+        body.light-mode .p-hero-copy p.desc { color: #4a5568; }
+
+        .p-hero-copy .avail-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12.5px;
+            color: #cfcfcf;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-top: 260px;
+        }
+        body.light-mode .p-hero-copy .avail-row { color: #4a5568; }
+        .p-hero-copy .avail-row i { color: #e2536a; }
+
+       .p-hero-photo {
+    position: relative; /* මෙය absolute වෙනුවට relative ලෙස තබා ගන්න */
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: visible;
+    z-index: 5;
+    margin-top: -180px; /* හිස උස මට්ටම් කිරීමට මෙම අගය සුළු වශයෙන් වෙනස් කරන්න */
+    margin-right: auto;
+    margin-left: -220px;
+}
+
+.p-hero-photo img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+        .p-hero-stats {
+            padding-top: 4px;
+    display: flex;             /* flex මගින් තිරස් අතට පෙළගස්වයි */
+    flex-direction: row;       /* තිරස් අතට පෙළගැස්වීම */
+    justify-content: space-between; /* කොටස් අතර සමාන ඉඩක් තබයි */
+    gap: 50px;
+    width: 100%;
+    margin-top: 170px;
+        }
+        .p-hero-stats .stat { 
+            text-align: center;        /* පෙළ මධ්‍යගත කරයි */
+    flex: 1;
+        }
+        
+        .p-hero-stats .stat .num {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 34px;
+            color: #c81e3a;
+            display: block;
+            line-height: 1;
+        }
+        .p-hero-stats .stat .lbl {
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #8a8a8a;
+        }
+        body.light-mode .p-hero-stats .stat .lbl { color: #4a5568; }
+        .p-hero-stats .divider { height: 1px; width: 60px; background: rgba(255,255,255,0.1); margin-left: auto; }
+
+        @media (max-width: 950px) {
+            .p-hero-grid { grid-template-columns: 1fr; padding-top: 60px; }
+            .p-hero-stats { flex-direction: row; justify-content: space-around; padding-bottom: 20px; order: 3; }
+            .p-hero-stats .stat { 
+                text-align: center ;
+                display: flex !important; /* සැඟවී ඇත්නම් එය පෙන්වීමට */
+                flex-direction: row;      /* තිරස් අතට පෙන්වීමට */
+                justify-content: space-around;
+                order: 3; }
+            .p-hero-stats .divider { display: block; }
+            .p-hero-photo { order: 2; height: 420px; }
+            .p-hero-copy { order: 1; padding-bottom: 20px; text-align: center; }
+            .p-hero-copy p.desc { margin-left: auto; margin-right: auto; }
+            .p-hero-copy .avail-row { justify-content: center; }
+            .p-hero-bigword { font-size:100px; top: -2px; }
+            .p-hero-top { flex-direction: column; gap: 10px; text-align: center; }
+        }
+
+        /* ============ SELECTED PROJECTS ============ */
+        .p-projects {
+            padding: 90px 8% 80px;
+            background: #0a0a0a;
+        }
+        body.light-mode .p-projects { background: #f4f7fa; }
+        .p-projects-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .p-projects-head h2 {
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        body.light-mode .p-projects-head h2 { color: #1a202c; }
+        .p-projects-head a {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #e2536a;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        .p-projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .p-project-card {
+            display: block;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.25s, border-color 0.25s;
+        }
+        .p-project-card:hover { transform: translateY(-6px); border-color: rgba(200,30,58,0.4); }
+        .p-project-banner {
+            height: 190px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 46px;
+            background: linear-gradient(135deg, #1c1414 0%, #2a1013 100%);
+        }
+        .p-project-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 18px;
+            background: #120e0e;
+        }
+        body.light-mode .p-project-meta { background: #ffffff; border-top: 1px solid #e2e8f0; }
+        .p-project-num { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 20px; color: #c81e3a; }
+        .p-project-text h4 { font-size: 14px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.5px; }
+        body.light-mode .p-project-text h4 { color: #1a202c; }
+        .p-project-text span { font-size: 12px; color: #8a8a8a; }
+        .p-project-meta i { color: #e2536a; }
+
+        @media (max-width: 900px) {
+            .p-projects-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ============ EDU & SKILLS / PROCESS / QUOTE ============ */
+        .p-triptych {
+            display: grid;
+            grid-template-columns: 1fr 1fr 0.8fr;
+            background: #0a0a0a;
+        }
+        body.light-mode .p-triptych { background: #f4f7fa; }
+        .p-triptych > div { padding: 80px 5% ; }
+        .p-col-edu, .p-col-process { border-right: 1px solid rgba(255,255,255,0.07); }
+        body.light-mode .p-col-edu, body.light-mode .p-col-process { border-right: 1px solid #e2e8f0; }
+
+        .p-col-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #fff;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+        body.light-mode .p-col-title { color: #1a202c; }
+
+        .p-sub-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: #e2536a;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        .p-edu-item { margin-bottom: 20px; }
+        .p-edu-item h5 { font-size: 14px; color: #eee; font-weight: 600; margin-bottom: 4px; }
+        body.light-mode .p-edu-item h5 { color: #1a202c; }
+        .p-edu-item span { font-size: 12px; color: #c81e3a; font-weight: 700; }
+
+        .p-skill-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 30px; }
+        .p-skill-pills span {
+            font-size: 11.5px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            padding: 8px 14px;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 4px;
+            color: #cfcfcf;
+            text-transform: uppercase;
+        }
+        body.light-mode .p-skill-pills span { color: #1a202c; border-color: #cbd5e0; }
+
+        .p-process-step { display: flex; gap: 16px; margin-bottom: 26px; }
+        .p-process-step:last-child { margin-bottom: 0; }
+        .p-process-num {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 13px;
+            color: #e2536a;
+            width: 24px;
+            flex-shrink: 0;
+        }
+        .p-process-step h5 { font-size: 13px; font-weight: 700; letter-spacing: 1px; color: #c81e3a; text-transform: uppercase; margin-bottom: 6px; }
+        .p-process-step p { font-size: 13.5px; line-height: 1.6; color: #9a9a9a; }
+        body.light-mode .p-process-step p { color: #4a5568; }
+
+        .p-col-quote {
+            background: linear-gradient(160deg, #c81e3a 0%, #6e0f20 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .p-col-quote .qmark-big { font-family: 'Poppins', sans-serif; font-size: 46px; color: rgba(255,255,255,0.6); line-height: 1; margin-bottom: 10px; }
+        .p-col-quote p { font-size: 18px; line-height: 1.5; color: #fff; font-weight: 500; margin-bottom: 18px; }
+        .p-col-quote .signature { font-family: 'Caveat', cursive; font-size: 26px; color: #fff; }
+        .p-col-quote .cta-line {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: #fff;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        @media (max-width: 950px) {
+            .p-triptych { grid-template-columns: 1fr; }
+            .p-col-edu, .p-col-process { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+        }
+
+        /* ============ WORK TOGETHER / CONTACT CTA ============ */
+        .p-cta {
+            padding: 90px 8%;
+            background: #060606;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        body.light-mode .p-cta { background: #eef1f5; }
+        .p-cta-left h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 34px;
+            font-weight: 800;
+            color: #fff;
+            text-transform: uppercase;
+            line-height: 1.15;
+            margin-bottom: 18px;
+        }
+        body.light-mode .p-cta-left h2 { color: #1a202c; }
+        .p-cta-left p { font-size: 14.5px; color: #9a9a9a; line-height: 1.7; max-width: 420px; margin-bottom: 30px; }
+        body.light-mode .p-cta-left p { color: #4a5568; }
+        .p-cta-details { display: flex; flex-direction: column; gap: 16px; }
+        .p-cta-details a, .p-cta-details .row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 14.5px;
+            color: #e8e8e8;
+            text-decoration: none;
+        }
+        body.light-mode .p-cta-details a, body.light-mode .p-cta-details .row { color: #1a202c; }
+        .p-cta-details i {
+            width: 38px; height: 38px;
+            border: 1px solid rgba(200,30,58,0.4);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: #e2536a;
+            flex-shrink: 0;
+        }
+
+        .p-browser-mock {
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+        .p-browser-bar {
+            background: #1c1414;
+            padding: 10px 14px;
+            display: flex;
+            gap: 6px;
+        }
+        .p-browser-bar span { width: 10px; height: 10px; border-radius: 50%; background: #3a2a2a; }
+        .p-browser-mock img { width: 100%; display: block; }
+
+        @media (max-width: 900px) {
+            .p-cta { grid-template-columns: 1fr; }
+        }
+
+        /* ============ Quick links strip ============ */
+        .quick-links {
+            padding: 50px 8% 70px;
+            background: #0a0a0a;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            max-width: 100%;
+        }
+        body.light-mode .quick-links { background: #f4f7fa; }
+        .quick-link-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 4px;
+            padding: 26px 22px;
+            text-decoration: none;
+            text-align: center;
+            transition: border-color 0.2s, transform 0.2s;
+            display: block;
+        }
+        .quick-link-card:hover {
+            border-color: rgba(200,30,58,0.4);
+            transform: translateY(-4px);
+        }
+        .quick-link-card .ql-icon { font-size: 28px; margin-bottom: 12px; display: block; }
+        .quick-link-card h3 { font-size: 15px; font-weight: 600; color: #e0e6f0; margin-bottom: 6px; font-family: 'Poppins', sans-serif; }
+        .quick-link-card p { font-size: 13px; color: #8a99b5; }
+
+        /* ============ Tools & Technologies ============ */
+        .skills-section {
+            padding: 20px 8% 90px;
+            background: #0a0a0a;
+        }
+        body.light-mode .skills-section { background: #f4f7fa; }
+        .sec-title {
+            text-align: center;
+            color: #fff;
+            font-size: 30px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 46px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .sec-title span { color: #c81e3a; }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 20px;
+            justify-content: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .skill-card {
+            background: #120e0e;
+            padding: 25px 15px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        body.light-mode .skill-card { background: #ffffff; border-color: #e2e8f0; }
+        .skill-card:hover { transform: translateY(-5px); border-color: #c81e3a; }
+        .skill-icon { font-size: 40px; margin-bottom: 12px; }
+        .skill-svg-icon { width: 40px; height: 40px; margin-bottom: 12px; }
+        .skill-card h3 { color: #fff; font-size: 14px; font-weight: 500; text-align: center; }
+        body.light-mode .skill-card h3 { color: #1a202c; }
+    </style>
+</head>
+<body id="page-body" class="pre-fade">
+
+   <nav>
+    <!-- Logo ඉවත් කර ඇත -->
+
+    <!-- මැද ඇති Links -->
+    <ul id="nav-menu">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <!-- දකුණු පස ඇති බොත්තම් -->
+    <div class="nav-right">
+        <a href="resume.pdf" download class="nav-cv-btn">
+            <i class="fa-solid fa-download"></i><span>Download CV</span>
+        </a>
+
+        <button class="theme-toggle-btn" id="theme-toggle" onclick="toggleTheme()">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+    <section class="p-hero">
+        <div class="p-hero-top">
+            <div>
+                <div class="role-tag">Software &amp; Web Developer</div>
+                <div class="role-sub">Physical Science &amp; ICT Undergraduate</div>
+            </div>
+            <div class="avail-tag"><i class="fa-solid fa-star"></i> Open to Internships &amp; Projects</div>
+        </div>
+
+                <div class="p-hero-stage">
+            <div class="p-hero-bigword">HESHAN</div>
+
+            <div class="p-hero-grid">
+                <!-- Left Text -->
+                <div class="p-hero-copy reveal">
+                    <span class="script">Hello, I'm</span>
+                    <h1>Heshan<br>Madhuwantha</h1>
+                    <div class="role-line">PHYSICAL SCIENCE &amp; ICT · PIANIST · VOCALIST</div>
+                    <p class="desc">I build clean, functional software and web experiences, and bring the same discipline from science and music into every line of code I write.</p>
+                    <div class="hero-buttons" style="margin-bottom:22px; display:flex; gap:14px;">
+                        <a href="projects.html" class="btn-primary">View My Work</a>
+                        <a href="contact.html" class="btn-secondary">Get in Touch</a>
+                    </div>
+                    <div class="avail-row"><i class="fa-solid fa-globe"></i> Based in Sri Lanka · Open to Remote Work</div>
+                </div>
+
+                <!-- මෙය ඔබේ HTML හි අදාළ ස්ථානයේ ඇති පරණ code එකට ආදේශ කරන්න -->
+<div class="p-hero-stats reveal">
+    <div class="stat">
+        <span class="num">4+</span>
+        <span class="lbl">Projects Built</span>
+    </div>
+    <div class="stat">
+        <span class="num">12+</span>
+        <span class="lbl">Tech Skills</span>
+    </div>
+    <div class="stat">
+        <span class="num">6</span>
+        <span class="lbl">Passion Areas</span>
+    </div>
+</div>
+                <!-- Center Photo -->
+                <div class="p-hero-photo reveal">
+                    <img src="images/heshan-pc1.png" alt="Heshan Madhuwantha">
+                </div>
+
+                
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="p-projects reveal">
+        <div class="p-projects-head">
+            <h2>Selected Projects</h2>
+            <a href="projects.html">View All Projects &rarr;</a>
+        </div>
+        <div class="p-projects-grid">
+            <a href="projects.html" class="p-project-card">
+                <div class="p-project-banner">
+            <img src="images/project1.jfif" alt="Project 1" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+                <div class="p-project-meta">
+                    <div class="p-project-text">
+                        <h4>Sales Management System</h4>
+                        <span>Java Swing · SQLite Desktop App</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+            <a href="projects.html" class="p-project-card">
+                <div class="p-project-banner">
+            <img src="images/project2.jfif" alt="Project 2" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+                <div class="p-project-meta">
+                    <div class="p-project-text">
+                        <h4>Numerical Methods Solver</h4>
+                        <span>Python · Root-Finding &amp; Interpolation</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+            <a href="projects.html" class="p-project-card">
+                <div class="p-project-banner">
+            <img src="images/project3.jfif" alt="Project 3" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+                <div class="p-project-meta">
+                    <div class="p-project-text">
+                        <h4>Personal Portfolio Website</h4>
+                        <span>HTML · CSS · JavaScript</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="p-triptych reveal">
+        <div class="p-col-edu">
+            <h3 class="p-col-title">Education &amp; Skills</h3>
+            <div class="p-sub-label">Education</div>
+            <div class="p-edu-item">
+                <h5>BSc in Physical Science &amp; ICT</h5>
+                <span>2024 — Present</span>
+            </div>
+            <div class="p-edu-item">
+                <h5>G.C.E. Advanced Level Examination</h5>
+                <span>2020 — 2022</span>
+            </div>
+            <div class="p-sub-label" style="margin-top:20px;">Skills</div>
+            <div class="p-skill-pills">
+                <span>HTML/CSS</span>
+                <span>JavaScript</span>
+                <span>Java</span>
+                <span>Python</span>
+                <span>React</span>
+                <span>MERN Stack</span>
+                <span>MySQL</span>
+                <span>Git</span>
+                <span>MATLAB</span>
+                <span>Docker</span>
+                <span>AWS</span>
+            </div>
+        </div>
+
+        <div class="p-col-process">
+            <h3 class="p-col-title">My Process</h3>
+            <div class="p-process-step">
+                <div class="p-process-num">01</div>
+                <div><h5>Learn</h5><p>Understanding the problem, requirements, and the concepts behind it.</p></div>
+            </div>
+            <div class="p-process-step">
+                <div class="p-process-num">02</div>
+                <div><h5>Plan</h5><p>Sketching the structure, data flow and the right tools for the job.</p></div>
+            </div>
+            <div class="p-process-step">
+                <div class="p-process-num">03</div>
+                <div><h5>Design</h5><p>Shaping a clean, usable interface around the underlying logic.</p></div>
+            </div>
+            <div class="p-process-step">
+                <div class="p-process-num">04</div>
+                <div><h5>Build</h5><p>Writing and testing the code, and iterating quickly.</p></div>
+            </div>
+            <div class="p-process-step">
+                <div class="p-process-num">05</div>
+                <div><h5>Ship</h5><p>Polishing, documenting and delivering the final result.</p></div>
+            </div>
+        </div>
+
+        <div class="p-col-quote">
+            <div>
+                <div class="qmark-big">&#10077;</div>
+                <p>Good code isn't just how it runs — it's how clearly it explains itself.</p>
+                <span class="signature">Heshan</span>
+            </div>
+            <a href="contact.html" class="cta-line">Let's Build Something <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <section class="p-cta reveal">
+        <div class="p-cta-left">
+            <h2>Let's Work Together</h2>
+            <p>I'm currently open for internships, freelance projects, and collaborations. Let's create something that works well and looks good doing it.</p>
+            <div class="p-cta-details">
+                <a href="mailto:heshancampus1028@gmail.com"><i class="fa-solid fa-envelope"></i> heshancampus1028@gmail.com</a>
+                <a href="https://github.com/heshancampus1028-dev" target="_blank"><i class="fa-brands fa-github"></i> github.com/heshancampus1028-dev</a>
+                <div class="row"><i class="fa-solid fa-location-dot"></i> Sri Lanka</div>
+            </div>
+        </div>
+        <div class="p-browser-mock">
+            <div class="p-browser-bar"><span></span><span></span><span></span></div>
+            <img src="images/project-preview.jpg" alt="Heshan's portfolio site preview">
+        </div>
+    </section>
+
+    <div class="quick-links reveal">
+        <a href="about.html" class="quick-link-card">
+            <span class="ql-icon">👤</span>
+            <h3>About Me</h3>
+            <p>Who I am & my background</p>
+        </a>
+        <a href="skills.html" class="quick-link-card">
+            <span class="ql-icon">💻</span>
+            <h3>Skills</h3>
+            <p>Technical expertise & tools</p>
+        </a>
+        <a href="projects.html" class="quick-link-card">
+            <span class="ql-icon">🛠️</span>
+            <h3>Projects</h3>
+            <p>Things I've built</p>
+        </a>
+        <a href="music.html" class="quick-link-card">
+            <span class="ql-icon">🎹</span>
+            <h3>Music</h3>
+            <p>My creative journey</p>
+        </a>
+        <a href="contact.html" class="quick-link-card">
+            <span class="ql-icon">✉️</span>
+            <h3>Contact</h3>
+            <p>Let's connect</p>
+        </a>
+    </div>
+
+    <section class="skills-section reveal">
+        <h2 class="sec-title">Tools &amp; <span>Technologies</span></h2>
+        <div class="skills-grid">
+
+            <div class="skill-card">
+                <i class="fa-brands fa-python skill-icon" style="color: #3776AB;"></i>
+                <h3>Python</h3>
+            </div>
+
+            <div class="skill-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg" alt="MATLAB" class="skill-svg-icon">
+                <h3>MATLAB</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fa-solid fa-database skill-icon" style="color: #00758F;"></i>
+                <h3>MySQL</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fa-brands fa-aws skill-icon" style="color: #FF9900;"></i>
+                <h3>AWS</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fa-brands fa-git-alt skill-icon" style="color: #F05032;"></i>
+                <h3>Git</h3>
+            </div>
+
+            <div class="skill-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" class="skill-svg-icon">
+                <h3>VS Code</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fa-brands fa-docker skill-icon" style="color: #2496ED;"></i>
+                <h3>Docker</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fa-brands fa-java skill-icon" style="color: #007396;"></i>
+                <h3>Java</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fa-brands fa-js skill-icon" style="color: #F7DF1E;"></i>
+                <h3>JavaScript</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fa-brands fa-react skill-icon" style="color: #61DAFB;"></i>
+                <h3>React</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fa-brands fa-html5 skill-icon" style="color: #E34F26;"></i>
+                <h3>HTML</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fa-brands fa-css3-alt skill-icon" style="color: #1572B6;"></i>
+                <h3>CSS</h3>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <a href="index.html" class="footer-logo">Heshan Madhuwantha</a>
+            <nav class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="skills.html">Skills</a>
+                <a href="projects.html">Projects</a>
+                <a href="music.html">Music</a>
+                <a href="cv.html">CV</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <p>© 2025 Heshan Madhuwantha. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+    const menu = document.getElementById('nav-menu');
+    const hamburger = document.getElementById('hamburger');
+    
+    menu.classList.toggle('open');
+    hamburger.classList.toggle('open');
+}
+        function toggleTheme() {
+            const body = document.getElementById('page-body');
+            const toggleBtn = document.getElementById('theme-toggle');
+            const icon = toggleBtn.querySelector('i');
+
+            icon.style.transform = 'rotate(360deg)';
+            icon.style.opacity = '0';
+
+            setTimeout(() => {
+                body.classList.toggle('light-mode');
+
+                if (body.classList.contains('light-mode')) {
+                    localStorage.setItem('portfolio-theme', 'light');
+                    icon.className = 'fa-solid fa-sun';
+                } else {
+                    localStorage.setItem('portfolio-theme', 'dark');
+                    icon.className = 'fa-solid fa-moon';
+                }
+
+                icon.style.transform = 'rotate(0deg)';
+                icon.style.opacity = '1';
+            }, 300);
+        }
+
+        window.onload = function() {
+            const savedTheme = localStorage.getItem('portfolio-theme');
+            const body = document.getElementById('page-body');
+            const icon = document.querySelector('#theme-toggle i');
+
+            requestAnimationFrame(() => requestAnimationFrame(() => body.classList.remove('pre-fade')));
+
+            if (savedTheme === 'light') {
+                body.classList.add('light-mode');
+                if(icon) icon.className = 'fa-solid fa-sun';
+            } else {
+                body.classList.remove('light-mode');
+                if(icon) icon.className = 'fa-solid fa-moon';
+            }
+        };
+
+        function toggleMenu() {
+            document.getElementById('nav-menu').classList.toggle('open');
+            document.getElementById('hamburger').classList.toggle('open');
+        }
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Smooth page-to-page transition
+        document.addEventListener('click', function(e) {
+            const link = e.target.closest('a');
+            if (!link) return;
+            const href = link.getAttribute('href');
+            if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') ||
+                link.target === '_blank' || href.startsWith('http') || href.startsWith('javascript:')) return;
+            e.preventDefault();
+            document.getElementById('page-body').classList.add('page-leaving');
+            setTimeout(() => { window.location.href = href; }, 300);
+        });
+    </script>
+</body>
+</html>

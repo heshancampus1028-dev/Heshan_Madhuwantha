@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heshan Madhuwantha | About</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            margin-bottom: 60px;
+        }
+        .about-text p {
+            font-size: 16px;
+            line-height: 1.9;
+            color: #8a99b5;
+            margin-bottom: 18px;
+        }
+        .about-text p strong { color: #e0e6f0; }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 24px 20px;
+            text-align: center;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .stat-card:hover { border-color: rgba(200, 30, 58,0.3); transform: translateY(-3px); }
+        .stat-card .stat-num { font-size: 32px; font-weight: 700; color: #c81e3a; display: block; }
+        .stat-card .stat-label { font-size: 13px; color: #8a99b5; margin-top: 4px; }
+
+        /* Education / Timeline */
+        .section-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 28px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+        .timeline { position: relative; padding-left: 28px; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 6px;
+            bottom: 0;
+            width: 2px;
+            background: rgba(200, 30, 58,0.25);
+            border-radius: 2px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 32px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #c81e3a;
+            border: 2px solid #0a0a0a;
+            box-shadow: 0 0 0 2px rgba(200, 30, 58,0.3);
+        }
+        .timeline-item .period {
+            font-size: 12px;
+            color: #c81e3a;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .timeline-item h4 { font-size: 16px; font-weight: 600; color: #e0e6f0; margin-bottom: 4px; }
+        .timeline-item p { font-size: 14px; color: #8a99b5; line-height: 1.6; }
+
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 14px;
+            margin-top: 28px;
+        }
+        .interest-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 20px 16px;
+            text-align: center;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .interest-item:hover { border-color: rgba(200, 30, 58,0.3); transform: translateY(-3px); }
+        .interest-item .int-icon { font-size: 26px; margin-bottom: 10px; display: block; }
+        .interest-item p { font-size: 13px; color: #8a99b5; }
+
+        @media (max-width: 900px) {
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            .about-stats { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body id="page-body" class="pre-fade">
+
+    <nav>
+    <!-- Logo ඉවත් කර ඇත -->
+
+    <!-- මැද ඇති Links -->
+    <ul id="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <!-- දකුණු පස ඇති බොත්තම් -->
+    <div class="nav-right">
+        <a href="resume.pdf" download class="nav-cv-btn">
+            <i class="fa-solid fa-download"></i><span>Download CV</span>
+        </a>
+
+        <button class="theme-toggle-btn" id="theme-toggle" onclick="toggleTheme()">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+    <div class="page-hero">
+        <span class="tag">Who I Am</span>
+        <h1>About Me</h1>
+        <p>A tech enthusiast and musician passionate about building things that matter.</p>
+        <div class="hero-line"></div>
+    </div>
+
+    <div class="page-content">
+
+        <div class="about-grid reveal">
+            <div class="about-text">
+                <p>I'm an undergraduate reading for a <strong>Physical Science degree</strong> with a deep passion for Information and Communication Technology. I enjoy solving complex problems through analytical thinking and clean, maintainable code.</p>
+                <p>My academic journey spans <strong>mathematics, physics, electronics, and computer science</strong> — giving me a strong multidisciplinary foundation that I apply to every project I build.</p>
+                <p>Beyond tech, I'm a dedicated <strong>musician, pianist, and vocalist</strong>. Music gives me the perfect creative balance alongside my analytical academic life — both disciplines demand patience, practice, and a love of problem-solving.</p>
+            </div>
+            <div class="about-stats">
+                <div class="stat-card">
+                    <span class="stat-num">2+</span>
+                    <span class="stat-label">Years Coding</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-num">10+</span>
+                    <span class="stat-label">Projects Done</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-num">5+</span>
+                    <span class="stat-label">Years Piano</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-num">∞</span>
+                    <span class="stat-label">Curiosity</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="reveal" style="margin-bottom: 60px;">
+            <h3 class="section-title">Education</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="period">2024 — Present</div>
+                    <h4>BSc in Physical Science & ICT </h4>
+                    <p>Undergraduate degree covering Mathematics, Physics, Electronics, and Computer Science.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="period">2020 - 2022</div>
+                    <h4>G.C.E. Advanced Level Examination</h4>
+                    <p>Covered Mathematics , Physics & Information and Communication Technology</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="reveal">
+            <h3 class="section-title">Interests & Hobbies</h3>
+            <div class="interests-grid">
+                <div class="interest-item">
+                    <span class="int-icon">🎹</span>
+                    <p>Piano Playing</p>
+                </div>
+                <div class="interest-item">
+                    <span class="int-icon">🎤</span>
+                    <p>Vocal Music</p>
+                </div>
+                <div class="interest-item">
+                    <span class="int-icon">⚛️</span>
+                    <p>Quantum Physics</p>
+                </div>
+                <div class="interest-item">
+                    <span class="int-icon">💡</span>
+                    <p>Electronics</p>
+                </div>
+                <div class="interest-item">
+                    <span class="int-icon">🖥️</span>
+                    <p>Software Dev</p>
+                </div>
+                <div class="interest-item">
+                    <span class="int-icon">📐</span>
+                    <p>Mathematics</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <a href="index.html" class="footer-logo">Heshan Madhuwantha</a>
+            <nav class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="skills.html">Skills</a>
+                <a href="projects.html">Projects</a>
+                <a href="music.html">Music</a>
+                <a href="cv.html">CV</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <p>© 2025 Heshan Madhuwantha. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('nav-menu').classList.toggle('open');
+            document.getElementById('hamburger').classList.toggle('open');
+        }
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        function toggleMenu() {
+            document.getElementById('nav-menu').classList.toggle('open');
+            document.getElementById('hamburger').classList.toggle('open');
+        }
+        
+        
+        function toggleTheme() {
+            const body = document.getElementById('page-body');
+            const toggleBtn = document.getElementById('theme-toggle');
+            
+            body.classList.toggle('light-mode');
+            
+            if (body.classList.contains('light-mode')) {
+                localStorage.setItem('portfolio-theme', 'light');
+                toggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            } else {
+                localStorage.setItem('portfolio-theme', 'dark');
+                toggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            }
+        }
+
+         
+        window.onload = function() {
+            const savedTheme = localStorage.getItem('portfolio-theme');
+            const body = document.getElementById('page-body');
+            const toggleBtn = document.getElementById('theme-toggle');
+
+            requestAnimationFrame(() => requestAnimationFrame(() => body.classList.remove('pre-fade')));
+
+            if (savedTheme === 'light') {
+                body.classList.add('light-mode');
+                if(toggleBtn) toggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            } else {
+                body.classList.remove('light-mode');
+                if(toggleBtn) toggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            }
+        };
+
+        // Smooth page-to-page transition
+        document.addEventListener('click', function(e) {
+            const link = e.target.closest('a');
+            if (!link) return;
+            const href = link.getAttribute('href');
+            if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') ||
+                link.target === '_blank' || href.startsWith('http') || href.startsWith('javascript:')) return;
+            e.preventDefault();
+            document.getElementById('page-body').classList.add('page-leaving');
+            setTimeout(() => { window.location.href = href; }, 300);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heshan Madhuwantha | Contact</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.6fr;
+            gap: 60px;
+            align-items: start;
+        }
+        .contact-info h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 14px;
+        }
+        .contact-info > p {
+            font-size: 15px;
+            color: #8a99b5;
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+        .contact-details { display: flex; flex-direction: column; gap: 14px; }
+        .contact-detail-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 14px;
+            color: #a0aec0;
+        }
+        .ci {
+            width: 42px;
+            height: 42px;
+            background: rgba(200, 30, 58,0.08);
+            border: 1px solid rgba(200, 30, 58,0.18);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 17px;
+            flex-shrink: 0;
+        }
+        .contact-detail-item span { color: #c5d0e0; font-weight: 500; }
+
+        .social-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 11px 20px;
+            text-decoration: none;
+            color: #a0aec0;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.25s ease;
+        }
+        .social-btn i {
+            font-size: 16px;
+            transition: transform 0.25s ease;
+        }
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+        }
+        .social-btn:hover i {
+            transform: scale(1.15);
+        }
+        .social-linkedin:hover {
+            border-color: #0a66c2;
+            color: #0a66c2;
+            background: rgba(10,102,194,0.1);
+        }
+        .social-github:hover {
+            border-color: #a0aec0;
+            color: #f0f3f7;
+            background: rgba(255,255,255,0.08);
+        }
+        .social-youtube:hover {
+            border-color: #ff0000;
+            color: #ff0000;
+            background: rgba(255,0,0,0.08);
+        }
+
+        /* Form */
+        .contact-form { display: flex; flex-direction: column; gap: 18px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-group label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #718096;
+            letter-spacing: 0.4px;
+        }
+        .form-group input,
+        .form-group textarea {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 13px 16px;
+            font-size: 14px;
+            color: #e0e6f0;
+            outline: none;
+            transition: border-color 0.2s, background 0.2s;
+            font-family: inherit;
+            resize: none;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #c81e3a;
+            background: rgba(200, 30, 58,0.04);
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder { color: #4a5568; }
+
+        .form-submit {
+            padding: 14px 34px;
+            background: #f5a623;
+            color: #1a202c;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s;
+            align-self: flex-start;
+        }
+        .form-submit:hover { background: #d88f12; transform: translateY(-2px); }
+
+        .success-msg {
+            display: none;
+            background: rgba(34,197,94,0.08);
+            border: 1px solid rgba(34,197,94,0.2);
+            border-radius: 10px;
+            padding: 16px 20px;
+            color: #4ade80;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .success-msg.show { display: block; }
+
+        @media (max-width: 900px) {
+            .contact-wrapper { grid-template-columns: 1fr; gap: 50px; }
+            .form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body id="page-body" class="pre-fade">
+
+    <nav>
+    <!-- Logo ඉවත් කර ඇත -->
+
+    <!-- මැද ඇති Links -->
+    <ul id="nav-menu">
+        <li><a href="index.html" >Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html" class="active" >Contact</a></li>
+    </ul>
+
+    <!-- දකුණු පස ඇති බොත්තම් -->
+    <div class="nav-right">
+        <a href="resume.pdf" download class="nav-cv-btn">
+            <i class="fa-solid fa-download"></i><span>Download CV</span>
+        </a>
+
+        <button class="theme-toggle-btn" id="theme-toggle" onclick="toggleTheme()">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+    <div class="page-hero">
+        <span class="tag">Let's Talk</span>
+        <h1>Contact Me</h1>
+        <p>Open for collaborations, tech projects, and musical opportunities.</p>
+        <div class="hero-line"></div>
+    </div>
+
+    <div class="page-content">
+        <div class="contact-wrapper reveal">
+
+            <div class="contact-info">
+                <h3>Get in touch</h3>
+                <p>Whether you have a project idea, want to collaborate, or just want to say hello — my inbox is always open.</p>
+                <div class="contact-details">
+                    <div class="contact-detail-item">
+                        <div class="ci">📧</div>
+                        <span>heshancampus1028@gmail.com</span>
+                    </div>
+                    <div class="contact-detail-item">
+                        <div class="ci">📍</div>
+                        <span>Sri Lanka</span>
+                    </div>
+                    <div class="contact-detail-item">
+                        <div class="ci">🎓</div>
+                        <span>Physical Science & ICT Undergraduate</span>
+                    </div>
+                    <div class="contact-detail-item">
+                        <div class="ci">⏰</div>
+                        <span>Reply within 24 hours</span>
+                    </div>
+                </div>
+                <div class="social-row">
+                    <a href="https://www.linkedin.com/in/heshan-maduwantha-0142a0236" target="_blank" class="social-btn social-linkedin">
+                        <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/heshancampus1028-dev" target="_blank" class="social-btn social-github">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="https://www.youtube.com/@heshanmadhuwantha1028" target="_blank" class="social-btn social-youtube">
+                        <i class="fa-brands fa-youtube"></i> YouTube
+                    </a>
+                </div>
+            </div>
+
+            <form class="contact-form" id="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Subject</label>
+                    <input type="text" name="subject" placeholder="Project idea, collaboration, etc.">
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea rows="6" name="message" placeholder="Tell me about your idea or just say hello..." required></textarea>
+                </div>
+                <div class="success-msg" id="success-msg">✓ Message sent! I'll get back to you soon.</div>
+                <div class="error-msg" id="error-msg" style="display:none; color:#f56565; margin-top:10px;">✗ Something went wrong. Please try again or email me directly.</div>
+                <button type="submit" class="form-submit" id="submit-btn">Send Message →</button>
+            </form>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <a href="index.html" class="footer-logo">Heshan Madhuwantha</a>
+            <nav class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="skills.html">Skills</a>
+                <a href="projects.html">Projects</a>
+                <a href="music.html">Music</a>
+                <a href="cv.html">CV</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <p>© 2025 Heshan Madhuwantha. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('nav-menu').classList.toggle('open');
+            document.getElementById('hamburger').classList.toggle('open');
+        }
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        function toggleMenu() {
+            document.getElementById('nav-menu').classList.toggle('open');
+            document.getElementById('hamburger').classList.toggle('open');
+        }
+
+        // TODO: Replace YOUR_FORM_ID below with your real Formspree form ID
+        // Sign up free at https://formspree.io, create a form, and paste the ID here.
+        const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnjkkkwq";
+
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            const form = document.getElementById('contact-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const successMsg = document.getElementById('success-msg');
+            const errorMsg = document.getElementById('error-msg');
+
+            successMsg.classList.remove('show');
+            errorMsg.style.display = 'none';
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            fetch(FORMSPREE_ENDPOINT, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(response => {
+                if (response.ok) {
+                    successMsg.classList.add('show');
+                    form.reset();
+                } else {
+                    errorMsg.style.display = 'block';
+                }
+            })
+            .catch(() => {
+                errorMsg.style.display = 'block';
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message →';
+            });
+        }
+        
+        
+        function toggleTheme() {
+            const body = document.getElementById('page-body');
+            const toggleBtn = document.getElementById('theme-toggle');
+            
+            body.classList.toggle('light-mode');
+            
+            if (body.classList.contains('light-mode')) {
+                localStorage.setItem('portfolio-theme', 'light');
+                toggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            } else {
+                localStorage.setItem('portfolio-theme', 'dark');
+                toggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            }
+        }
+
+        
+        window.onload = function() {
+            const savedTheme = localStorage.getItem('portfolio-theme');
+            const body = document.getElementById('page-body');
+            const toggleBtn = document.getElementById('theme-toggle');
+
+            requestAnimationFrame(() => requestAnimationFrame(() => body.classList.remove('pre-fade')));
+
+            if (savedTheme === 'light') {
+                body.classList.add('light-mode');
+                if(toggleBtn) toggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            } else {
+                body.classList.remove('light-mode');
+                if(toggleBtn) toggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            }
+        };
+
+        // Smooth page-to-page transition
+        document.addEventListener('click', function(e) {
+            const link = e.target.closest('a');
+            if (!link) return;
+            const href = link.getAttribute('href');
+            if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') ||
+                link.target === '_blank' || href.startsWith('http') || href.startsWith('javascript:')) return;
+            e.preventDefault();
+            document.getElementById('page-body').classList.add('page-leaving');
+            setTimeout(() => { window.location.href = href; }, 300);
+        });
+    </script>
+</body>
+</html>

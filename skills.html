@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heshan Madhuwantha | Skills</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Core competency chips (ATS-friendly keyword strip) */
+        .competency-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 50px;
+        }
+        .competency-chip {
+            background: rgba(200, 30, 58,0.08);
+            border: 1px solid rgba(200, 30, 58,0.25);
+            color: #e2536a;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 22px;
+            margin-bottom: 60px;
+        }
+        .skill-category {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 28px 24px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .skill-category:hover { border-color: rgba(200, 30, 58,0.25); transform: translateY(-3px); }
+        .skill-category-head {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .skill-category-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: rgba(200, 30, 58,0.12);
+            color: #c81e3a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        .skill-category h3 {
+            font-size: 13px;
+            font-weight: 700;
+            color: #e0e6f0;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Proficiency level tag instead of raw percentage */
+        .level-tag {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.3px;
+        }
+        .level-advanced   { background: rgba(200, 30, 58,0.15); color: #e2536a; }
+        .level-intermediate { background: rgba(147,112,247,0.15); color: #e2536a; }
+        .level-beginner    { background: rgba(160,174,192,0.15); color: #a0aec0; }
+
+        /* Tool badges */
+        .tools-section { margin-top: 20px; }
+        .tools-section h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 22px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+        .tools-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .tool-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.09);
+            border-radius: 10px;
+            padding: 10px 16px;
+            font-size: 14px;
+            color: #c5d0e0;
+            font-weight: 500;
+            transition: border-color 0.2s, background 0.2s, transform 0.2s;
+        }
+        .tool-badge:hover {
+            border-color: rgba(200, 30, 58,0.3);
+            background: rgba(200, 30, 58,0.07);
+            transform: translateY(-2px);
+        }
+        .tool-badge .tb-icon {
+            font-size: 15px;
+            color: #c81e3a;
+            width: 18px;
+            text-align: center;
+        }
+
+        /* Currently learning section */
+        .learning-section {
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.07);
+        }
+        .learning-section h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .learning-section .sub {
+            font-size: 14px;
+            color: #8a99b5;
+            margin-bottom: 22px;
+        }
+        .learning-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .learning-badge {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            background: transparent;
+            border: 1.5px dashed rgba(147,112,247,0.4);
+            border-radius: 10px;
+            padding: 10px 16px;
+            font-size: 14px;
+            color: #e2536a;
+            font-weight: 500;
+        }
+        .learning-badge i { font-size: 14px; }
+
+        body.light-mode .competency-chip {
+            background: rgba(200, 30, 58,0.08);
+            border-color: rgba(200, 30, 58,0.3);
+            color: #a51830;
+        }
+        body.light-mode .skill-category h3 { color: #1a202c; }
+        body.light-mode .learning-badge { color: #a51830; border-color: rgba(124,92,214,0.4); }
+    </style>
+</head>
+<body id="page-body" class="pre-fade">
+
+    <nav>
+    <!-- Logo ඉවත් කර ඇත -->
+
+    <!-- මැද ඇති Links -->
+    <ul id="nav-menu">
+        <li><a href="index.html" >Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="skills.html" class="active">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <!-- දකුණු පස ඇති බොත්තම් -->
+    <div class="nav-right">
+        <a href="resume.pdf" download class="nav-cv-btn">
+            <i class="fa-solid fa-download"></i><span>Download CV</span>
+        </a>
+
+        <button class="theme-toggle-btn" id="theme-toggle" onclick="toggleTheme()">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+    <div class="page-hero">
+        <span class="tag">Core Competencies</span>
+        <h1>Technical Skills</h1>
+        <p>Technologies and tools I use to design, build, and test reliable software.</p>
+        <div class="hero-line"></div>
+    </div>
+
+    <div class="page-content">
+
+        <div class="competency-strip reveal">
+            <span class="competency-chip">Object-Oriented Programming</span>
+            <span class="competency-chip">MVC Architecture</span>
+            <span class="competency-chip">Unit Testing (JUnit)</span>
+            <span class="competency-chip">Database Design</span>
+            <span class="competency-chip">Version Control (Git)</span>
+            <span class="competency-chip">Problem Solving</span>
+            <span class="competency-chip">Team Collaboration</span>
+        </div>
+
+        <div class="skills-grid reveal">
+            <div class="skill-category">
+                <div class="skill-category-head">
+                    <div class="skill-category-icon"><i class="fa-solid fa-code"></i></div>
+                    <h3>Programming Languages</h3>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>Java</span><span class="level-tag level-advanced">Advanced</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>Python</span><span class="level-tag level-intermediate">Intermediate</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>JavaScript</span><span class="level-tag level-intermediate">Intermediate</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="65"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>C (Basics)</span><span class="level-tag level-beginner">Beginner</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="50"></div></div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <div class="skill-category-head">
+                    <div class="skill-category-icon"><i class="fa-solid fa-globe"></i></div>
+                    <h3>Web Development</h3>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>HTML & CSS</span><span class="level-tag level-advanced">Advanced</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>Java Swing (GUI)</span><span class="level-tag level-advanced">Advanced</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>React (Learning)</span><span class="level-tag level-beginner">Beginner</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="40"></div></div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <div class="skill-category-head">
+                    <div class="skill-category-icon"><i class="fa-solid fa-database"></i></div>
+                    <h3>Database & Tools</h3>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>SQLite / MySQL</span><span class="level-tag level-advanced">Advanced</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>Git & GitHub</span><span class="level-tag level-intermediate">Intermediate</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>Maven / NetBeans</span><span class="level-tag level-intermediate">Intermediate</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <div class="skill-category-head">
+                    <div class="skill-category-icon"><i class="fa-solid fa-square-root-variable"></i></div>
+                    <h3>Mathematics & Science</h3>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>Linear Algebra</span><span class="level-tag level-advanced">Advanced</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>Numerical Methods</span><span class="level-tag level-intermediate">Intermediate</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>Electronics / Physics</span><span class="level-tag level-intermediate">Intermediate</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tools-section reveal">
+            <h3>Tools & Platforms</h3>
+            <div class="tools-grid">
+                <div class="tool-badge"><i class="fa-solid fa-mug-hot tb-icon"></i> Java / NetBeans</div>
+                <div class="tool-badge"><i class="fa-brands fa-python tb-icon"></i> Python</div>
+                <div class="tool-badge"><i class="fa-solid fa-database tb-icon"></i> SQLite</div>
+                <div class="tool-badge"><i class="fa-solid fa-server tb-icon"></i> MySQL</div>
+                <div class="tool-badge"><i class="fa-brands fa-git-alt tb-icon"></i> Git & GitHub</div>
+                <div class="tool-badge"><i class="fa-solid fa-box tb-icon"></i> Maven</div>
+                <div class="tool-badge"><i class="fa-solid fa-vial tb-icon"></i> JUnit 5</div>
+                <div class="tool-badge"><i class="fa-brands fa-linux tb-icon"></i> Linux / Terminal</div>
+                <div class="tool-badge"><i class="fa-solid fa-code tb-icon"></i> VS Code</div>
+                <div class="tool-badge"><i class="fa-solid fa-calculator tb-icon"></i> MATLAB (Basic)</div>
+            </div>
+        </div>
+
+        <div class="learning-section reveal">
+            <h3>Currently Learning</h3>
+            <p class="sub">Actively expanding my skill set to stay current with industry tools.</p>
+            <div class="learning-grid">
+                <div class="learning-badge"><i class="fa-brands fa-react"></i> React.js</div>
+                <div class="learning-badge"><i class="fa-solid fa-cubes"></i> Kubernetes Fundamentals</div>
+                <div class="learning-badge"><i class="fa-solid fa-calculator"></i> MATLAB</div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <a href="index.html" class="footer-logo">Heshan<span>.</span></a>
+            <nav class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="skills.html">Skills</a>
+                <a href="projects.html">Projects</a>
+                <a href="music.html">Music</a>
+                <a href="cv.html">CV</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <p>© 2025 Heshan Madhuwantha. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('nav-menu').classList.toggle('open');
+            document.getElementById('hamburger').classList.toggle('open');
+        }
+
+        
+        function toggleTheme() {
+            const body = document.getElementById('page-body');
+            const toggleBtn = document.getElementById('theme-toggle');
+            
+            body.classList.toggle('light-mode');
+            
+            if (body.classList.contains('light-mode')) {
+                localStorage.setItem('portfolio-theme', 'light');
+                toggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            } else {
+                localStorage.setItem('portfolio-theme', 'dark');
+                toggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            }
+        }
+
+        
+        window.onload = function() {
+            const savedTheme = localStorage.getItem('portfolio-theme');
+            const body = document.getElementById('page-body');
+            const toggleBtn = document.getElementById('theme-toggle');
+
+            requestAnimationFrame(() => requestAnimationFrame(() => body.classList.remove('pre-fade')));
+
+            if (savedTheme === 'light') {
+                body.classList.add('light-mode');
+                if(toggleBtn) toggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            } else {
+                body.classList.remove('light-mode');
+                if(toggleBtn) toggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            }
+        };
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    e.target.querySelectorAll('.skill-fill').forEach(bar => {
+                        setTimeout(() => { bar.style.width = bar.getAttribute('data-width') + '%'; }, 200);
+                    });
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Smooth page-to-page transition
+        document.addEventListener('click', function(e) {
+            const link = e.target.closest('a');
+            if (!link) return;
+            const href = link.getAttribute('href');
+            if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') ||
+                link.target === '_blank' || href.startsWith('http') || href.startsWith('javascript:')) return;
+            e.preventDefault();
+            document.getElementById('page-body').classList.add('page-leaving');
+            setTimeout(() => { window.location.href = href; }, 300);
+        });
+    </script>
+</body>
+</html>
